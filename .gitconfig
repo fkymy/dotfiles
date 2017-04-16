@@ -1,8 +1,6 @@
 [user]
 	name = Yuske Fukuyama
 	email = yuskefuku@gmail.com
-[alias]
-	# TBC
 [core]
 	# Use custom `.gitignore`
 	excludesfile = ~/.gitignore
@@ -24,6 +22,17 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+[alias]
+  s = status
+  sh = show
+  c = commit
+  br = branch
+  ba = branch -a
+  co = checkout
+  cb = checkout -b
+  ls = log --stat
+  lo = log --oneline
+  lp = log -p
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
