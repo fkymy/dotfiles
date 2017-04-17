@@ -89,7 +89,7 @@ set ruler
 """"""""""""""""""""""""""""""
 syntax on
 colorscheme tomorrow-night
-autocmd FileType ruby colorscheme badwolf
+"autocmd FileType ruby colorscheme badwolf
 
 highlight LineNr ctermfg=grey
 
@@ -115,3 +115,4 @@ endif
 """"""""""""""""""""""""""""""
 
 filetype on
+
