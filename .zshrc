@@ -1,10 +1,14 @@
+# --------------------------
+# oh-my-zsh
+# --------------------------
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/yuskefukuyama/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="random"
+#ZSH_THEME="random"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,8 +56,6 @@ plugins=(bundler git github node npm pip python rails ruby textmate web-search)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -77,6 +79,110 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# --------------------------
+# user configuration
+# --------------------------
+
+## history config
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# do not record dupes in history
+setopt hist_ignore_all_dups
+
+# ignore if space in front
+setopt hist_ignore_space
+
+# adds history incrementally
+setopt inc_append_history
+
+# share history across sessions
+setopt share_history
+
+# allow editing after calling history
+setopt hist_verify
+
+# allow japanese file names
+setopt print_eight_bit
+
+# disable beep
+setopt no_beep
+
+# disable Ctrl-S / Ctrl-Q flow control
+setopt no_flow_control
+
+# do not end zsh with Ctrl-D
+setopt ignore_eof
+
+# make autocomplete buffer
+autoload -U compinit
+compinit -u
+
+# allow hjkl in autocomplete menu
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+
+# --------------------------
+# alias
+# --------------------------
+
+# tmp
+alias cdcw='cd cowcamo-rails'
+alias cutthevideo='ffmpeg -i video.mp4 -r 10 image%d.jpg'
+alias asdf='【=◈︿◈=】'
+
+# cd
+alias dc='cd'
+
+# ls
+alias ;s='ls'
+alias la='ls -a'
+alias lr='ls -hrtl'
+alias lt='ls -htl'
+
+# process
+alias ps
+
+# git
+alias gut='git'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m' # requires commit message
+alias gca='git commit -a'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gco='git checkout'
+alias gls='git log --stat'
+alias glo='git log --oneline'
+alias glog="git log --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn%x09%Creset%s' | tail -1 && echo '' && git status -s -b"
+
+# vim
+alias v='vim'
+
+# less
+alias less='less -NM'
+
+# rake
+alias raket='RAILS_ENV=test rake'
+alias raked='RAILS_ENV=development rake'
+alias rakep='RAILS_ENV=production rake'
+
+# --------------------------
+# rbenv
+# --------------------------
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# --------------------------
+# node.js
+# --------------------------
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# source $HOME/.zshrc.custom
