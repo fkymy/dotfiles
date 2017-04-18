@@ -1,114 +1,82 @@
-# zsh
-########################################
-## 環境変数
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/yuskefukuyama/.oh-my-zsh
 
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="random"
 
-# 日本語ファイル名を表示可能にする
-setopt print_eight_bit
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# beep を無効にする
-setopt no_beep
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# フローコントロールを無効にする
-setopt no_flow_control
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# Ctrl+Dでzshを終了しない
-setopt ignore_eof
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-# cd した先のディレクトリをディレクトリスタックに追加する
-# ディレクトリスタックとは今までに行ったディレクトリの履歴のこと
-# `cd +<Tab>` でディレクトリの履歴が表示され、そこに移動できる
-setopt auto_pushd
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-# pushd したとき、ディレクトリがすでにスタックに含まれていればスタックに追加しない
-setopt pushd_ignore_dups
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# 補完機能の強化
-autoload -U compinit
-compinit
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-# 補完で小文字でも大文字にマッチさせる
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
 
-# -----------------------
-# Prompts
-# -----------------------
-autoload -U promptinit; promptinit
-autoload -Uz colors; colors
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# プロンプト
-# 1行表示
-# PROMPT="%~ %# "
-# 2行表示
-PROMPT="%{${fg[white]}%}%n @%*%{${reset_color}%} %~
-$ "
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
 
-# vcs_info
-autoload -Uz vcs_info
-autoload -Uz add-zsh-hook
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-zstyle ':vcs_info:*' check-for-changes true
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(bundler git github node npm pip python rails ruby textmate web-search)
 
-zstyle ':vcs_info:*' formats '%F{white}on %b%u%f'
-zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
+source $ZSH/oh-my-zsh.sh
 
-function _update_vcs_info_msg() {
-  LANG=en_US.UTF-8 vcs_info
-  RPROMPT="${vcs_info_msg_0_}"
-}
-add-zsh-hook precmd _update_vcs_info_msg
+# User configuration
 
-# -----------------------
-# Aliases
-# -----------------------
-# "s." will open the current directory in Sublime
-alias sub='open -a "Sublime Text"'
-alias mate='open -a "TextMate"'
-# Color LS
-colorflag="-G"
-alias ls="command ls ${colorflag}"
-alias l="ls -lF ${colorflag}" # all files, in long format
-alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
-alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
+# export MANPATH="/usr/local/man:$MANPATH"
 
-# Custom
-alias lr='ls -hrtl'
-alias lt='ls -htl'
-alias cdcw="cd cowcamo-rails"
-alias cutthevideo="ffmpeg -i video.mp4 -r 10 image%d.jpg"
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-# Quicker navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-# Enable aliases to be sudo’ed
-alias sudo='sudo '
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# Colored up cat!
-# You must install Pygments first - "sudo easy_install Pygments"
-alias c='pygmentize -O style=monokai -f console256 -g'
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Git
-# You must install Git first
-alias gs='git status'
-alias ga='git add .'
-alias gc='git commit -m' # requires you to type a commit message
-alias gp='git push'
-alias grm='git rm $(git ls-files --deleted)'
-
-# init z! (https://github.com/rupa/z)
-. ~/z.sh
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-
-# --------------------------
-# node.js
-# --------------------------
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
-
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"

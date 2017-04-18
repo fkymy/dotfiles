@@ -74,6 +74,11 @@ set shiftwidth=2
 set softtabstop=2
 set autoindent
 set smartindent
+
+set mouse=a
+set clipboard+=unnamed
+
+
 set clipboard=unnamed
 
 set showcmd
