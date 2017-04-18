@@ -79,27 +79,45 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-" tmp customization
-set tabstop=2
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set autoindent
-set smartindent
+""""""""""""""""""""""""""""""
+" Temporary Customization
+""""""""""""""""""""""""""""""
 
-set mouse=a
-set clipboard+=unnamed
-
-
-set clipboard=unnamed
-
-set showcmd
-set incsearch
+"disable annoying beeps
 set noeb vb t_vb=
 
+"allow mouse usage in terminal
+set mouse=a
+"use OS clipboard
+set clipboard+=unnamed
+"system clipboard when yanked
+set clipboard=unnamed
+"Ctrl+k to copy what's on clipboard
+imap <C-p>  <ESC>"*pa
+
+"show command in status line
+set showcmd
+"show unseen words
+set list
+"display where tabs and lines go
+set listchars=tab:>\ ,extends:<
+
+"incremental search
+set incsearch
+"highlight search
+set hlsearch
+"ignore case
+set ignorecase
+
+"show filepath on window titlebar
 set title
+"display line number
 set number
+"locate cursor
 set ruler
+
+"for vim.lightline
+set laststatus=2
 
 """"""""""""""""""""""""""""""
 " Colors
@@ -107,11 +125,54 @@ set ruler
 syntax on
 colorscheme tomorrow-night
 "autocmd FileType ruby colorscheme badwolf
-
 highlight LineNr ctermfg=grey
 
-set laststatus=2
+""""""""""""""""""""""""""""""
+" Indents
+""""""""""""""""""""""""""""""
 
+"default tab to 2 spaces
+set tabstop=2
+"default indent width
+set shiftwidth=2
+"tabs become multiple spaces
+set expandtab
+"continue previous tab when going to next line
+set autoindent
+"adjust indents when going to next line
+set smartindent
+
+"credits: https://github.com/yuroyoro/dotfiles/blob/master/.vimrc.indent
+if has("autocmd")
+  "ファイルタイプの検索を有効にする
+  filetype plugin on
+  "そのファイルタイプにあわせたインデントを利用する
+  filetype indent on
+  " これらのftではインデントを無効に
+  "autocmd FileType php filetype indent off
+
+  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType jsx        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType go         setlocal noexpandtab list tabstop=2 shiftwidth=2
+endif
 
 " http://inari.hatenablog.com/entry/2014/05/05/231307
 """"""""""""""""""""""""""""""
@@ -135,4 +196,3 @@ endif
 au BufRead,BufNewFile *.md set filetype=markdown
 
 filetype on
-
