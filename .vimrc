@@ -37,14 +37,26 @@ NeoBundle 'itchyny/lightline.vim'
 "Fuzzy file, buffer, mru, tag, finder.
 NeoBundle 'kien/ctrlp.vim'
 
-"Orgasmic comment
+"Orgasmic comment.
 NeoBundle 'tomtom/tcomment_vim'
 
-"Highlights trailing whitespace
+"Text filtering and alignment
+NeoBundle 'godlygeek/tabular'
+
+"Highlights trailing whitespace.
 NeoBundle 'bronson/vim-trailing-whitespace'
 
-"Auto pairing
+"Auto pairing.
 NeoBundle 'jiangmiao/auto-pairs'
+
+"Markdown vim mode.
+NeoBundle 'plasticboy/vim-markdown'
+
+"Realtime preview by vim.
+NeoBundle 'kannokanno/previm'
+
+"Open URI
+NeoBundle 'tyru/open-browser.vim'
 
 "wisely add end in ruby
 NeoBundle 'tpope/vim-endwise'
@@ -118,6 +130,9 @@ if has('syntax')
     call ZenkakuSpace()
 endif
 """"""""""""""""""""""""""""""
+
+"for markdown
+au BufRead,BufNewFile *.md set filetype=markdown
 
 filetype on
 
