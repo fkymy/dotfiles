@@ -8,7 +8,7 @@ export ZSH=/Users/yuskefukuyama/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="random"
+ZSH_THEME="mh"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -48,6 +48,9 @@ export ZSH=/Users/yuskefukuyama/.oh-my-zsh
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -56,33 +59,12 @@ plugins=(bundler git github node npm pip python rails ruby textmate web-search)
 
 source $ZSH/oh-my-zsh.sh
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-
 # --------------------------
 # user configuration
 # --------------------------
+
+export LANG=en_US.UTF-8
+export EDITOR='vim'
 
 ## history config
 HISTFILE=~/.zsh_history
@@ -127,6 +109,33 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
+# -----------------------
+# Prompt
+# -----------------------
+# autoload -U promptinit; promptinit
+# autoload -Uz colors; colors
+#
+# # line 1
+# PROMPT="%~ %# "
+# # line 2
+# PROMPT="%{${fg[white]}%}%n @%*%{${reset_color}%} %~
+# $ "
+#
+# # vcs_info
+# autoload -Uz vcs_info
+# autoload -Uz add-zsh-hook
+#
+# zstyle ':vcs_info:*' check-for-changes true
+#
+# zstyle ':vcs_info:*' formats '%F{white}on %b%u%f'
+# zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
+#
+# function _update_vcs_info_msg() {
+#  LANG=en_US.UTF-8 vcs_info
+#  RPROMPT="${vcs_info_msg_0_}"
+# }
+# add-zsh-hook precmd _update_vcs_info_msg
+
 # --------------------------
 # alias
 # --------------------------
@@ -134,19 +143,15 @@ bindkey -M menuselect 'l' vi-forward-char
 # tmp
 alias cdcw='cd cowcamo-rails'
 alias cutthevideo='ffmpeg -i video.mp4 -r 10 image%d.jpg'
-alias asdf='【=◈︿◈=】'
+alias asdf='echo 【=◈︿◈=】'
 
 # cd
 alias dc='cd'
 
 # ls
-alias ;s='ls'
 alias la='ls -a'
 alias lr='ls -hrtl'
 alias lt='ls -htl'
-
-# process
-alias ps
 
 # git
 alias gut='git'
