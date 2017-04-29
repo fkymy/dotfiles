@@ -49,6 +49,9 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 "Auto pairing.
 NeoBundle 'jiangmiao/auto-pairs'
 
+"Auto complete html
+NeoBundle 'othree/html5.vim'
+
 "Markdown vim mode.
 NeoBundle 'plasticboy/vim-markdown'
 
@@ -118,6 +121,9 @@ set ruler
 
 "for vim.lightline
 set laststatus=2
+
+"for html
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 """"""""""""""""""""""""""""""
 " Colors
