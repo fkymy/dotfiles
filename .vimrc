@@ -28,6 +28,12 @@ NeoBundle 'tpope/vim-fugitive'
 "One colorscheme pack to rule them all.
 NeoBundle 'flazz/vim-colorschemes'
 
+"Chocolate Liquor
+NeoBundle 'ChocolateLiquor'
+
+"Gruvbox
+NeoBundle 'morhetz/gruvbox'
+
 "A tree explorer plugin for vim.
 NeoBundle 'scrooloose/nerdtree'
 
@@ -138,7 +144,12 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 " Colors
 """"""""""""""""""""""""""""""
 syntax on
-colorscheme tomorrow-night
+
+"gruxbox settings
+"set termguicolors
+"let g:gruvbox_italic=1
+"let g:gruvbox_termcolors=16
+colorscheme gruvbox
 "autocmd FileType ruby colorscheme badwolf
 highlight LineNr ctermfg=grey
 

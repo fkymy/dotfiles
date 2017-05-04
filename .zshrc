@@ -133,6 +133,9 @@ bindkey -M menuselect 'l' vi-forward-char
 # }
 # add-zsh-hook precmd _update_vcs_info_msg
 
+# https://github.com/morhetz/gruvbox/wiki/Terminal-specific
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+
 # --------------------------
 # alias
 # --------------------------
