@@ -55,6 +55,12 @@ NeoBundle 'othree/html5.vim'
 "Javascript indentation and syntax support.
 NeoBundle 'pangloss/vim-javascript'
 
+"JSX syntax highlighting and indenting
+NeoBundle 'mxw/vim-jsx'
+
+"ES6 syntax highlighting
+NeoBundle 'isruslan/vim-es6'
+
 "Markdown vim mode.
 NeoBundle 'plasticboy/vim-markdown'
 
