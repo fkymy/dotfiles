@@ -12,9 +12,9 @@ Thumbs.db
 
 .idea/*
 
-.*~
 *~
 *.swp
 .vim/bundle/
+.nvim/bundle/
 
 vendor/bundle/
