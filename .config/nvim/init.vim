@@ -142,6 +142,9 @@ set laststatus=2
 "for html
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
+"for terminal emulator 
+set sh=zsh
+
 """"""""""""""""""""""""""""""
 " Colors
 """"""""""""""""""""""""""""""
