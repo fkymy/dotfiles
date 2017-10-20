@@ -144,6 +144,8 @@ source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 alias cdcw='cd cowcamo-rails'
 alias cutthevideo='ffmpeg -i video.mp4 -r 10 image%d.jpg'
 alias asdf='echo 【=◈︿◈=】'
+alias tt='cd && cd texts'
+alias py='python3.6'
 
 # cd
 alias dc='cd'
