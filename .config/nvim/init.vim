@@ -76,10 +76,10 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
 "wisely add end in ruby
-NeoBundle 'tpope/vim-endwise'
+"NeoBundle 'tpope/vim-endwise'
 
 "rails.vim
-NeoBundle 'tpope/vim-rails'
+"NeoBundle 'tpope/vim-rails'
 
 "Railscast colorscheme
 "NeoBundle 'jpo/vim-railscasts-theme'
@@ -137,12 +137,23 @@ set number
 set ruler
 
 "for vim.lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ },
+      \ }
+
+function! LightlineFilename()
+  return expand('%')
+endfunction
+
 set laststatus=2
 
 "for html
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
-"for terminal emulator 
+"for terminal emulator
 set sh=zsh
 
 """"""""""""""""""""""""""""""
@@ -169,9 +180,9 @@ colorscheme gruvbox
 let g:indent_guides_enable_on_vim_startup = 1
 
 "default tab to 2 spaces
-set tabstop=2
+set tabstop=4
 "default indent width
-set shiftwidth=2
+set shiftwidth=4
 "tabs become multiple spaces
 set expandtab
 "continue previous tab when going to next line

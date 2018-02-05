@@ -135,6 +135,17 @@ set number
 set ruler
 
 "for vim.lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ },
+      \ }
+
+function! LightlineFilename()
+  return expand('%')
+endfunction
+
 set laststatus=2
 
 "for html
