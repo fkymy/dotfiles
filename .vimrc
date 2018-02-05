@@ -76,11 +76,14 @@ NeoBundle 'kannokanno/previm'
 "Open URI
 NeoBundle 'tyru/open-browser.vim'
 
+"Python mode
+NeoBundle 'klen/python-mode'
+
 "wisely add end in ruby
-NeoBundle 'tpope/vim-endwise'
+"NeoBundle 'tpope/vim-endwise'
 
 "rails.vim
-NeoBundle 'tpope/vim-rails'
+"NeoBundle 'tpope/vim-rails'
 
 "Railscast colorscheme
 "NeoBundle 'jpo/vim-railscasts-theme'
@@ -177,7 +180,7 @@ set expandtab
 "continue previous tab when going to next line
 set autoindent
 "adjust indents when going to next line
-set smartindent
+"set smartindent
 
 "credits: https://github.com/yuroyoro/dotfiles/blob/master/.vimrc.indent
 if has("autocmd")
