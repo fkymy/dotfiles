@@ -79,6 +79,9 @@ NeoBundle 'tyru/open-browser.vim'
 "Python mode
 NeoBundle 'klen/python-mode'
 
+"Python PEP8 indentation
+NeoBundle 'Vimjas/vim-python-pep8-indent'
+
 "wisely add end in ruby
 "NeoBundle 'tpope/vim-endwise'
 
@@ -153,6 +156,10 @@ set laststatus=2
 
 "for html
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
+"terminal emulator default
+set sh=zsh
+tnoremap <silent> <ESC> <C-\><C-n>
 
 """"""""""""""""""""""""""""""
 " Colors
