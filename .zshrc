@@ -211,3 +211,8 @@ export NVM_DIR="$HOME/.nvm"
 # postgresql
 # --------------------------
 export PGDATA="/usr/local/var/postgres"
+
+# --------------------------
+# go
+# --------------------------
+export GOPATH=$HOME/go
