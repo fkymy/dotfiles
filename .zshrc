@@ -216,3 +216,9 @@ export PGDATA="/usr/local/var/postgres"
 # go
 # --------------------------
 export GOPATH=$HOME/go
+
+# --------------------------
+# google-cloud-sdk
+# --------------------------
+source /Users/yuskefukuyama/google-cloud-sdk/completion.zsh.inc
+source /Users/yuskefukuyama/google-cloud-sdk/path.zsh.inc
