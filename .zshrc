@@ -59,7 +59,8 @@ source $ZSH/oh-my-zsh.sh
 # --------------------------
 # user configuration
 # --------------------------
-
+# export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
 export EDITOR='vim'
 
@@ -222,8 +223,8 @@ export GOPATH=$HOME/go
 source /Users/fkymy/google-cloud-sdk/completion.zsh.inc
 source /Users/fkymy/google-cloud-sdk/path.zsh.inc
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/fkymy/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fkymy/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/fkymy/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fkymy/google-cloud-sdk/completion.zsh.inc'; fi
+# --------------------------
+# move default ~/.config/nvim/init.vim to dotfiles
+# --------------------------
+export XDG_CONFIG_HOME=$HOME/dotfiles/.config
