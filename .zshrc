@@ -3,7 +3,7 @@
 # --------------------------
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/yuskefukuyama/.oh-my-zsh
+export ZSH=/Users/fkymy/.oh-my-zsh
 
 ZSH_THEME="fkymy"
 
@@ -141,7 +141,6 @@ source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 # --------------------------
 
 # tmp
-alias cdcw='cd cowcamo-rails'
 alias cutthevideo='ffmpeg -i video.mp4 -r 10 image%d.jpg'
 alias asdf='echo 【=◈︿◈=】'
 alias tt='cd && cd texts'
@@ -220,5 +219,11 @@ export GOPATH=$HOME/go
 # --------------------------
 # google-cloud-sdk
 # --------------------------
-source /Users/yuskefukuyama/google-cloud-sdk/completion.zsh.inc
-source /Users/yuskefukuyama/google-cloud-sdk/path.zsh.inc
+source /Users/fkymy/google-cloud-sdk/completion.zsh.inc
+source /Users/fkymy/google-cloud-sdk/path.zsh.inc
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/fkymy/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fkymy/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/fkymy/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fkymy/google-cloud-sdk/completion.zsh.inc'; fi
