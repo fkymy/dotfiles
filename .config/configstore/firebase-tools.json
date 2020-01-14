@@ -1,0 +1,38 @@
+{
+	"analytics-uuid": "dd18bbb1-1f14-421b-b30e-3237fb2b3e7c",
+	"motd": {
+		"minVersion": "3.0.5"
+	},
+	"motd.fetched": 1559449804270,
+	"usage": true,
+	"user": {
+		"iss": "accounts.google.com",
+		"azp": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"aud": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"sub": "104317756039687725943",
+		"email": "yuskefuku@gmail.com",
+		"email_verified": true,
+		"at_hash": "yQI0Zlzx1O40iYqetij-4Q",
+		"iat": 1559131797,
+		"exp": 1559135397
+	},
+	"tokens": {
+		"expires_at": 1559453402897,
+		"refresh_token": "1/ZxGKPyzezr007UUkQZ6y0k3aDJJRkmtrGTc9I-QeKWcmTlsTBGDJ27AcNqun1HER",
+		"scopes": [
+			"email",
+			"https://www.googleapis.com/auth/cloud-platform",
+			"https://www.googleapis.com/auth/cloudplatformprojects.readonly",
+			"https://www.googleapis.com/auth/firebase",
+			"openid"
+		],
+		"access_token": "ya29.GlwcB1e5jnyjFqi6v7TWnTZORelCpCutYnLdfhsWxuoJiVEl9NV38s_BV1MaJGFX4GdAFL5DH38Y03qz0A0yWEQkXMx1b_RrpxJMMa84uAW5g195yvVi8U8unWILnA",
+		"expires_in": 3600,
+		"scope": "https://www.googleapis.com/auth/firebase https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/cloudplatformprojects.readonly openid",
+		"token_type": "Bearer",
+		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImM3ZjUyMmQwMzIyODRkMjUyYmVlNGZkODA1NjBjZWZhMGZiNjBjMzkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA0MzE3NzU2MDM5Njg3NzI1OTQzIiwiZW1haWwiOiJ5dXNrZWZ1a3VAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiI1TVdPX1kzcXQtdDZpNEY4cjdsSUlnIiwiaWF0IjoxNTU5NDQ5ODAyLCJleHAiOjE1NTk0NTM0MDJ9.Vi4p7QnQZN045VJyPDeyhX8VAfZHFsE7xtp4Qosabo3ldJcdedInYWFr3-mtwqxxMcIItr9uOTqXgAoCFrL9L3LELI6m6inj_MPEArbIP3HAds83_1ywhGnqfw_OoXlF0hJ8bqp_-yyLtMzBYQQLDD4eoFbT8fI4aXN6DJQ0Ysr__k2Cg7kjesIa69wq580KkZ6YHWjmOEHd_klfBq8MzZuIQu7jnluOw3dvuIoTJDi-jZGVqO9RpcEnJpgwRE-640_vtoohc9xD6-g77y8Ms7tJ-Xi2cz2p2trj-m2A4UPC8RHD3t2YBLl8uycYo03Hrix9pWKqDLxO64fq4HWQHA"
+	},
+	"activeProjects": {
+		"/Users/fkymy/byteclub-web": "byteclub-web"
+	}
+}
