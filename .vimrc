@@ -179,16 +179,16 @@ highlight LineNr ctermfg=grey
 """"""""""""""""""""""""""""""
 
 "default tab to 2 spaces
-"set tabstop=4
+set tabstop=4
 "default indent width
-"set shiftwidth=4
+set shiftwidth=4
 "tabs become multiple spaces
 "set expandtab
 "continue previous tab when going to next line
 set autoindent
 "adjust indents when going to next line
 "set smartindent
-"set noexpandtab
+set noexpandtab
 
 "credits: https://github.com/yuroyoro/dotfiles/blob/master/.vimrc.indent
 if has("autocmd")
