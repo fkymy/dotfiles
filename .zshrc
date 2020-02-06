@@ -177,7 +177,17 @@ alias vim='nvim'
 # less
 alias less='less -NM'
 
+
+# --------------------------
+# C
+# --------------------------
+
+alias gcc='gcc -Wall -Werror -Wextra'
+
+# --------------------------
 # rake
+# --------------------------
+
 alias raket='RAILS_ENV=test rake'
 alias raked='RAILS_ENV=development rake'
 alias rakep='RAILS_ENV=production rake'
@@ -188,7 +198,6 @@ alias rakep='RAILS_ENV=production rake'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 
 # --------------------------
 # pyenv

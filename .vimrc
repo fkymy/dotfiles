@@ -179,15 +179,16 @@ highlight LineNr ctermfg=grey
 """"""""""""""""""""""""""""""
 
 "default tab to 2 spaces
-set tabstop=2
+"set tabstop=4
 "default indent width
-set shiftwidth=2
+"set shiftwidth=4
 "tabs become multiple spaces
-set expandtab
+"set expandtab
 "continue previous tab when going to next line
 set autoindent
 "adjust indents when going to next line
 "set smartindent
+"set noexpandtab
 
 "credits: https://github.com/yuroyoro/dotfiles/blob/master/.vimrc.indent
 if has("autocmd")
@@ -198,7 +199,7 @@ if has("autocmd")
   " これらのftではインデントを無効に
   "autocmd FileType php filetype indent off
 
-  autocmd FileType c          setlocal sw=4 sts=4 ts=4
+  autocmd FileType c          setlocal sw=4
   autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
