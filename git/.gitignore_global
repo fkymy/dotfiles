@@ -1,0 +1,30 @@
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+.idea/*
+
+*~
+*.swp
+.vim/bundle/
+.nvim/bundle/
+
+vendor/bundle/
+
+*.pyc
+*.out
+
+venv
+node_modules
+.sass-cache
+
+# RSA keys, just in case
+*rsa*

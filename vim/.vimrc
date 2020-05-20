@@ -1,5 +1,3 @@
-"symbolic link broken
-
 " Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
@@ -30,6 +28,12 @@ NeoBundle 'tpope/vim-fugitive'
 "One colorscheme pack to rule them all.
 NeoBundle 'flazz/vim-colorschemes'
 
+"Chocolate Liquor
+NeoBundle 'ChocolateLiquor'
+
+"Gruvbox
+NeoBundle 'morhetz/gruvbox'
+
 "A tree explorer plugin for vim.
 NeoBundle 'scrooloose/nerdtree'
 
@@ -47,9 +51,6 @@ NeoBundle 'godlygeek/tabular'
 
 "Highlights trailing whitespace.
 NeoBundle 'bronson/vim-trailing-whitespace'
-
-"Indent Guide
-NeoBundle 'nathanaelkane/vim-indent-guides'
 
 "Auto pairing.
 NeoBundle 'jiangmiao/auto-pairs'
@@ -159,7 +160,7 @@ set laststatus=2
 "for html
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
-"for terminal emulator
+"terminal emulator default
 set sh=zsh
 tnoremap <silent> <ESC> <C-\><C-n>
 
@@ -167,14 +168,11 @@ tnoremap <silent> <ESC> <C-\><C-n>
 " Colors
 """"""""""""""""""""""""""""""
 syntax on
-"colorscheme jellybeans
 
 "gruxbox settings
-"termguicolors unknown for vim
 set termguicolors
 let g:gruvbox_italic=1
 let g:gruvbox_termcolors=16
-set background=dark
 colorscheme gruvbox
 "autocmd FileType ruby colorscheme badwolf
 "highlight LineNr ctermfg=grey
