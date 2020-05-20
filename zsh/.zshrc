@@ -236,7 +236,7 @@ source /Users/fkymy/google-cloud-sdk/path.zsh.inc
 # --------------------------
 # move default ~/.config/nvim/init.vim to dotfiles
 # --------------------------
-export XDG_CONFIG_HOME=$HOME/dotfiles/.config
+export XDG_CONFIG_HOME=$HOME/dotfiles/vim/.config
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
