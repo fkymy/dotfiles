@@ -64,6 +64,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
 export EDITOR='vim'
 
+export DOTFILES=$HOME/dotfiles
+
 ## history config
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -246,3 +248,7 @@ export XDG_CONFIG_HOME=$HOME/dotfiles/vim/.config
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 source /Users/fkymy/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+# Load custom commands
+export PATH="$DOTFILES/bin:$PATH"
+
