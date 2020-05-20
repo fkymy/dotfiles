@@ -7,12 +7,13 @@ if test ! $(which brew); then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+# No longer using Brewfile, see notes
 # Update Homebrew recipes
-brew update
+# brew update
 
 # Install all our dependencies with bundle (See Brewfile)
-brew tap homebrew/bundle
-brew bundle
+# brew tap homebrew/bundle
+# brew bundle
 
 # Make ZSH the default shell environment
 chsh -s $(which zsh)

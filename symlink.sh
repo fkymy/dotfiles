@@ -7,7 +7,7 @@
 # Dont link DS_Store files
 find . -name ".DS_Store" -exec rm {} \;
 
-PROGRAMS=(alias bin bash env git stow tmux vim zsh)
+PROGRAMS=(bin git stow tmux vim zsh)
 
 function backup_if_exists() {
     if [ -f $1 ];
