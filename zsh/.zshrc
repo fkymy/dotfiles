@@ -174,7 +174,7 @@ alias glog="git log --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn%x09%Cr
 alias v='vim'
 
 # nvim
-# alias vim='nvim'
+alias vim='nvim'
 
 # less
 alias less='less -NM'
