@@ -260,8 +260,21 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include"
 export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 
 # virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# export WORKON_HOME=$HOME/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+# source /Library/Frameworks/Python.framework/Versions/3.7/bin/virtualenvwrapper.sh
 
+# Setup virtualenv home
+export WORKON_HOME=$HOME/.virtualenvs
+# source /usr/local/bin/virtualenvwrapper.sh
+# source /Users/fkymy/.pyenv/shims/virtualenvwrapper.sh
+source $PYENV_ROOT/versions/3.8.2/bin/virtualenvwrapper.sh
+
+# Tell pyenv-virtualenvwrapper to use pyenv when creating new Python environments
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+
+# Set the pyenv shims to initialize
+if command -v pyenv 1>/dev/null 2>&1; then
+ eval "$(pyenv init -)"
+fi
