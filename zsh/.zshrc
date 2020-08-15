@@ -8,9 +8,7 @@ export ZSH=/Users/fkymy/.oh-my-zsh
 ZSH_THEME="fkymy"
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
+# CASE_SENSITIVE="true" Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
@@ -184,6 +182,9 @@ alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias df='df -h'
 
+# docker
+alias dc='docker-compose'
+
 # --------------------------
 # C
 # --------------------------
@@ -278,3 +279,6 @@ export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 if command -v pyenv 1>/dev/null 2>&1; then
  eval "$(pyenv init -)"
 fi
+
+# 42
+alias norminette="~/.norminette/norminette.rb"
