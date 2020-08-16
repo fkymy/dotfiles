@@ -402,3 +402,12 @@ endfunction
 command! Stdheader call s:stdheader ()
 map <F1> :Stdheader<CR>
 autocmd BufWritePre * call s:update ()
+
+""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
