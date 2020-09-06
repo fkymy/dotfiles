@@ -1,0 +1,32 @@
+{
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Solarized Dark",
+    "C_Cpp.updateChannel": "Insiders",
+    "[c]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": false,
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true
+    },
+    "[html]": {
+        "editor.tabSize": 2,
+        "editor.suggest.insertMode": "replace"
+    },
+    "[css]": {
+        "editor.tabSize": 2,
+        "editor.suggest.insertMode": "replace"
+    },
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[javascript]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[javascriptreact]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    }
+}
