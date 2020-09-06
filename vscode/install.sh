@@ -14,3 +14,5 @@ code --install-extension ms-azuretools.vscode-docker
 
 code --install-extension editorconfig.editorconfig
 code --install-extension vscode-icons-team.vscode-icons
+
+cp ./vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
