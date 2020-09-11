@@ -1,6 +1,6 @@
 {
     "window.zoomLevel": 1,
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Gruvbox Dark (Soft)",
     "C_Cpp.updateChannel": "Insiders",
     "[c]": {
         "editor.tabSize": 4,
@@ -26,6 +26,14 @@
         "editor.insertSpaces": true
     },
     "[javascriptreact]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[typescript]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[typescriptreact]": {
         "editor.tabSize": 2,
         "editor.insertSpaces": true
     }

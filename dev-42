@@ -16,7 +16,7 @@ then
     tmux send-keys "vim ." C-m
 
     # Split pane 1 horizontal by 65%
-    tmux splitw -h -p 35
+    tmux splitw -h -p 25
     tmux send-keys "git status" C-m
 
     # Select pane 2
