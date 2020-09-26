@@ -5,8 +5,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/fkymy/.oh-my-zsh
 
-ZSH_THEME="fkymy"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true" Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -50,7 +48,17 @@ ZSH_THEME="fkymy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bundler git github node npm pip python rails ruby textmate web-search zsh-autosuggestions)
+plugins=(
+    git
+    github
+    node
+    npm
+    pip
+    python
+    zsh-autosuggestions
+)
+
+ZSH_THEME="fkymy"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -134,6 +142,9 @@ bindkey -M menuselect 'l' vi-forward-char
 # }
 # add-zsh-hook precmd _update_vcs_info_msg
 
+# move propt to the bottom
+# printf '\n%.0s' {1..100}
+
 # https://github.com/morhetz/gruvbox/wiki/Terminal-specific
 source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 
@@ -146,6 +157,8 @@ alias cutthevideo='ffmpeg -i video.mp4 -r 10 image%d.jpg'
 alias asdf='echo 【=◈︿◈=】'
 alias ct='cd ~/Dropbox/texts'
 alias py='python3.6'
+alias dev='bash ~/dotfiles/dev-42'
+alias dev42='bash ~/dotfiles/dev-42'
 
 # cd
 alias dc='cd'
@@ -189,7 +202,7 @@ alias dc='docker-compose'
 # C
 # --------------------------
 
-alias gcc='gcc -Wall -Werror -Wextra'
+# alias gcc='gcc -Wall -Werror -Wextra'
 
 # --------------------------
 # rake
@@ -231,7 +244,7 @@ export PGDATA="/usr/local/var/postgres"
 # --------------------------
 # go
 # --------------------------
-export GOPATH=$HOME/go
+# export GOPATH=$HOME/go
 
 # --------------------------
 # google-cloud-sdk
