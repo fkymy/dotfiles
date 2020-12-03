@@ -11,16 +11,15 @@ tmux:
     stashed: '⚑ '
     clean: ✔
   styles:
-    clear: '#[fg=white]'
-    state: '#[fg=white]'
+    state: '#[fg=red]'
     branch: '#[fg=white]'
-    remote: '#[fg=white]'
-    staged: '#[fg=white]'
+    remote: '#[fg=cyan]'
+    staged: '#[fg=green]'
     conflict: '#[fg=red]'
-    modified: '#[fg=white]'
-    untracked: '#[fg=white]'
-    stashed: '#[fg=yellow,bold]'
-    clean: '#[fg=black]'
+    modified: '#[fg=red]'
+    untracked: '#[fg=magenta]'
+    stashed: '#[fg=cyan]'
+    clean: '#[fg=green]'
   layout: [branch, .., remote-branch, divergence, ' ', flags]
   options:
-    branch_max_len: 0
+    branch_max_len: 12
