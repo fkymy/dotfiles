@@ -10,12 +10,12 @@ if [ $UID -eq 0 ]; then NCOLOR="green"; else NCOLOR="white"; fi
 
 # prompt
 NEWLINE=$'\n'
-PROMPT="[%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%} @%*: %{$fg[red]%}%30<...<%~%<<%{$reset_color%}]${NEWLINE} %(!.#.$) "
+PROMPT="[%{$fg[white]%}%B%n%b %{$fg[cyan]%}@%*: %{$fg[red]%}%30<...<%~%<<%{$reset_color%}]${NEWLINE} %{$fg[yellow]%}%(!.#.$) %{$reset_color%}"
 RPROMPT='$(git_prompt_info)'
 
 # git theming
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[gray]%}%{$fg_no_bold[white]%}%B"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%b%{$fg_bold[gray]%}%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[white]%}%B"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%} ✱"
 

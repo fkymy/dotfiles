@@ -157,8 +157,9 @@ alias cutthevideo='ffmpeg -i video.mp4 -r 10 image%d.jpg'
 alias asdf='echo 【=◈︿◈=】'
 alias ct='cd ~/Dropbox/texts'
 alias py='python3.6'
-alias dev='bash ~/dotfiles/dev-42'
-alias dev42='bash ~/dotfiles/dev-42'
+alias dev='bash ~/dotfiles/bin/dev'
+alias dev42='bash ~/dotfiles/dev42.sh'
+alias gogh='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 
 # cd
 alias dc='cd'
@@ -166,7 +167,8 @@ alias dc='cd'
 # ls
 alias la='ls -a'
 alias lr='ls -hrtl'
-alias lt='ls -htl'
+# alias lt='ls -htl'
+alias lsx='exa --icons'
 
 # git
 alias gut='git'
