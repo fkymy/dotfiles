@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 session="42"
 sessionexists=$(tmux list-sessions | grep $session)
@@ -26,7 +26,7 @@ then
 
     # select pane 3, set to api root
     tmux selectp -t 3
-    tmux send-keys "ls -la" C-m
+    tmux send-keys "lsx -la" C-m
 
     # Select pane 1
     tmux selectp -t 1
