@@ -116,7 +116,6 @@ NeoBundleCheck
 """"""""""""""""""""""""""""""
 " Temporary Customization
 """"""""""""""""""""""""""""""
-
 "disable annoying beeps
 set noeb vb t_vb=
 
@@ -131,10 +130,11 @@ imap <C-p>  <ESC>"*pa
 
 "show command in status line
 set showcmd
-"show unseen words
+
+"show list chars
 set list
-"display where tabs and lines go
 set listchars=tab:>\ ,extends:<
+set listchars+=space:.
 
 "incremental search
 set incsearch
@@ -153,8 +153,13 @@ set ruler
 "for vim.lightline
 let g:lightline = {
       \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
+      \   'gitbranch': 'FugitiveHead',
       \ },
       \ }
 
@@ -179,15 +184,20 @@ syntax on
 "gruxbox settings
 set termguicolors
 let g:gruvbox_italic=1
-let g:gruvbox_termcolors=16
+"let g:gruvbox_termcolors=16
+let g:gruvbox_contrast_dark="soft"
+let g:gruvbox_hls_cursor="orange"
+let g:gruvbox_number_column="bg1"
+let g:gruvbox_improved_strings=1
+let g:gruvbox_vert_split="bg0"
 colorscheme gruvbox
+
 "autocmd FileType ruby colorscheme badwolf
 "highlight LineNr ctermfg=grey
 
 """"""""""""""""""""""""""""""
 " Indents
 """"""""""""""""""""""""""""""
-
 "indent-guide
 let g:indent_guides_enable_on_vim_startup = 1
 
@@ -411,10 +421,68 @@ map <F1> :Stdheader<CR>
 autocmd BufWritePre * call s:update ()
 
 """"""""""""""""""""""""""""""
+" File Navigation
 """"""""""""""""""""""""""""""
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
+" let NERDTreeHighlightCursorline = 0
+" let g:NERDTreeLimitedSyntax = 1
+highlight NERDTreeCWD guifg=#9DD08E ctermfg=white
+" highlight NERDTreeClosable guifg=#A8A521 ctermfg=white
+" highlight NERDTreeOpenable guifg=#A8A521 ctermfg=white
+highlight NERDTreeClosable guifg=#9DD08E ctermfg=white
+highlight NERDTreeOpenable guifg=#9DD08E ctermfg=white
+"highlight NERDTreeDir guifg=#5BABDC
+"highlight NERDTreeDir guifg=#116C8B
+highlight NERDTreeDir guifg=#549699
+highlight! link NERDTreeFlags NERDTreeDir
+
+""""""""""""""""""""""""""""""
+" Syntastic
+""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { 'passive_filetypes': ['shell', 'sh'] }
+
+""""""""""""""""""""""""""""""
+" Hot Fixes
+""""""""""""""""""""""""""""""
+set updatetime=100
+
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
 endif
+
+" inoremap jk <ESC>
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+":hi Directory guifg=#FF0000 ctermfg=red
+"highlight Directory ctermfg=blue
+let s:lightGreen = "689FB6"
+"let s:green = "8FAA54"
+let s:green = "689FB6"
+
+nmap <S-Tab> :tabprev<Return>
+nmap <Tab> :tabnext<Return>
+
+" git-gutter
+" highlight SignColumn guifg=#549699
+" highlight GitGutterAdd ctermfg=2
+" highlight GitGutterChange ctermfg=3
+" highlight GitGutterDelete ctermfg=1
+" highlight GitGutterChangeDelete ctermfg=4
+"let g:gitgutter_override_sign_column_highlight = 0
+"highlight clear SignColumn
+highlight GitGutterAdd guifg=#549699 guibg=#3C3836
+highlight GitGutterChange guifg=#549699 guibg=#3C3836
+highlight GitGutterDelete guifg=#549699 guibg=#3C3836
+highlight GitGutterChangeDelete guifg=#549699 guibg=#3C3836
+
