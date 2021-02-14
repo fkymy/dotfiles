@@ -65,7 +65,6 @@ source $ZSH/oh-my-zsh.sh
 # --------------------------
 # user configuration
 # --------------------------
-# export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
 export EDITOR='vim'
@@ -154,28 +153,20 @@ source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 
 # tmp
 alias cutthevideo='ffmpeg -i video.mp4 -r 10 image%d.jpg'
-alias asdf='echo 【=◈︿◈=】'
 alias ct='cd ~/Dropbox/texts'
 alias py='python3.6'
-alias dev='bash ~/dotfiles/bin/dev'
 alias dev42='bash ~/dotfiles/dev42.sh'
 alias gogh='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
-
-# cd
-alias dc='cd'
 
 # ls
 alias la='ls -a'
 alias lr='ls -hrtl'
-# alias lt='ls -htl'
 alias lsx='exa --icons'
 
 # git
-alias gut='git'
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit -m'
-alias gca='git commit -a'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gco='git checkout'
@@ -199,6 +190,9 @@ alias df='df -h'
 
 # docker
 alias dc='docker-compose'
+
+# 42
+alias norminette="~/.norminette/norminette.rb"
 
 # --------------------------
 # C
@@ -294,6 +288,3 @@ export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 if command -v pyenv 1>/dev/null 2>&1; then
  eval "$(pyenv init -)"
 fi
-
-# 42
-alias norminette="~/.norminette/norminette.rb"
