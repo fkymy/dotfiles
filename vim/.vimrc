@@ -22,23 +22,30 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles:
-"A git wrapper so awesome, it should be illegal
-NeoBundle 'tpope/vim-fugitive'
-
-"One colorscheme pack to rule them all.
-NeoBundle 'flazz/vim-colorschemes'
-
-"Chocolate Liquor
-NeoBundle 'ChocolateLiquor'
-
 "Gruvbox
 NeoBundle 'morhetz/gruvbox'
+"NeoBundle 'sainnhe/gruvbox-material'
+
+"A light and configurable statusline for vim.
+NeoBundle 'itchyny/lightline.vim'
 
 "A tree explorer plugin for vim.
 NeoBundle 'scrooloose/nerdtree'
 
-"A light and configurable statusline for vim.
-NeoBundle 'itchyny/lightline.vim'
+"Icons for nerdtree
+NeoBundle 'ryanoasis/vim-devicons'
+
+"Syntax highlighting for nerdtree
+"NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+"A git wrapper so awesome, it should be illegal
+NeoBundle 'tpope/vim-fugitive'
+
+"Syntax checking for vim
+NeoBundle 'scrooloose/syntastic'
+
+"Completion
+NeoBundle 'neoclide/coc.nvim'
 
 "Fuzzy file, buffer, mru, tag, finder.
 NeoBundle 'kien/ctrlp.vim'
@@ -82,6 +89,9 @@ NeoBundle 'klen/python-mode'
 "Python PEP8 indentation
 NeoBundle 'Vimjas/vim-python-pep8-indent'
 
+"One colorscheme pack to rule them all.
+"NeoBundle 'flazz/vim-colorschemes'
+
 "wisely add end in ruby
 "NeoBundle 'tpope/vim-endwise'
 
@@ -93,9 +103,6 @@ NeoBundle 'Vimjas/vim-python-pep8-indent'
 
 "Base16 colors
 "NeoBundle 'chriskempson/base16-vim'
-
-"Gruvbox for gruving
-NeoBundle 'morhetz/gruvbox'
 
 call neobundle#end()
 
@@ -233,10 +240,10 @@ let g:jsx_ext_required = 0
 "let g:javascript_plugin_flow = 1
 let g:javascript_plugin_jsdoc = 1
 
-" http://inari.hatenablog.com/entry/2014/05/05/231307
 """"""""""""""""""""""""""""""
 " Zenkaku
 """"""""""""""""""""""""""""""
+" http://inari.hatenablog.com/entry/2014/05/05/231307
 function! ZenkakuSpace()
     highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 endfunction
