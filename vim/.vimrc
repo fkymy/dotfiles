@@ -449,6 +449,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'passive_filetypes': ['shell', 'sh'] }
 
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
 """"""""""""""""""""""""""""""
 " Hot Fixes
 """"""""""""""""""""""""""""""
