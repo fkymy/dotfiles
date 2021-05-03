@@ -1,11 +1,16 @@
 [user]
 	name = fkymy
 	email = yuskefuku@gmail.com
+[include]
+	path = /Users/fkymy/dotfiles/git/themes.gitconfig
 [core]
 	excludesfile = ~/.gitignore_global
 	# Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
 	whitespace = space-before-tab,indent-with-non-tab,trailing-space
 	ignorecase = false
+	# delta
+	pager = delta
+	# pager = delta --dark
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
 	ui = auto
@@ -23,16 +28,16 @@
 	changed = green
 	untracked = cyan
 [alias]
-  s = status
-  sh = show
-  c = commit
-  br = branch
-  ba = branch -a
-  co = checkout
-  cb = checkout -b
-  ls = log --stat
-  lo = log --oneline
-  lp = log -p
+	s = status
+	sh = show
+	c = commit
+	br = branch
+	ba = branch -a
+	co = checkout
+	cb = checkout -b
+	ls = log --stat
+	lo = log --oneline
+	lp = log -p
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -43,3 +48,15 @@
 	rebase = false
 [init]
 	defaultBranch = main
+
+[delta]
+	features = collared-trogon
+	# features = villsau
+	# features = woolly-mammoth
+	side-by-side = false
+	line-numbers = true
+	navigate = true
+	whitespace-error-style = 22 reverse
+	hunk-header-line-number-style = bold "#999999"
+[interactive]
+	diffFilter = delta --color-only
