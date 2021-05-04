@@ -39,7 +39,7 @@ NeoBundle 'ryanoasis/vim-devicons'
 "NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 "A git wrapper so awesome, it should be illegal
-NeoBundle 'tpope/vim-fugitive'
+"NeoBundle 'tpope/vim-fugitive'
 
 "Syntax checking for vim
 NeoBundle 'scrooloose/syntastic'
@@ -60,28 +60,31 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'bronson/vim-trailing-whitespace'
 
 "Auto pairing.
-NeoBundle 'jiangmiao/auto-pairs'
+"NeoBundle 'jiangmiao/auto-pairs'
+
+"Close brackets conservatively.
+NeoBundle 'rstacruz/vim-closer'
 
 "Auto complete html.
 NeoBundle 'othree/html5.vim'
 
 "Javascript indentation and syntax support.
-NeoBundle 'pangloss/vim-javascript'
+"NeoBundle 'pangloss/vim-javascript'
 
 "JSX syntax highlighting and indenting
 NeoBundle 'mxw/vim-jsx'
 
 "ES6 syntax highlighting
-NeoBundle 'isruslan/vim-es6'
+"NeoBundle 'isruslan/vim-es6'
 
 "Markdown vim mode.
-NeoBundle 'plasticboy/vim-markdown'
+"NeoBundle 'plasticboy/vim-markdown'
 
 "Realtime preview by vim.
-NeoBundle 'kannokanno/previm'
+"NeoBundle 'kannokanno/previm'
 
 "Open URI
-NeoBundle 'tyru/open-browser.vim'
+"NeoBundle 'tyru/open-browser.vim'
 
 "Python mode
 NeoBundle 'klen/python-mode'
@@ -175,6 +178,20 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 "terminal emulator default
 set sh=zsh
 tnoremap <silent> <ESC> <C-\><C-n>
+
+"auto close {
+" function! s:CloseBracket()
+"     let line = getline('.')
+"     if line =~# '^\s*\(struct\|class\|enum\) '
+"         return "{\<Enter>};\<Esc>O"
+"     elseif searchpair('(', '', ')', 'bmn', '', line('.'))
+"         " Probably inside a function call. Close it off.
+"         return "{\<Enter>});\<Esc>O"
+"     else
+"         return "{\<Enter>}\<Esc>O"
+"     endif
+" endfunction
+" inoremap <expr> {<Enter> <SID>CloseBracket()
 
 """"""""""""""""""""""""""""""
 " Colors
@@ -445,7 +462,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'passive_filetypes': ['shell', 'sh'] }
 
