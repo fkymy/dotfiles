@@ -1,66 +1,16 @@
-# --------------------------
-# oh-my-zsh
-# --------------------------
+#zmodload zsh/zprof
 
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/fkymy/.oh-my-zsh
+autoload -U promptinit; promptinit
+PURE_PROMPT_SYMBOL=$
+zstyle :prompt:pure:path color white
+zstyle :prompt:pure:prompt:success color red
+zstyle :prompt:pure:prompt:error color magenta
+prompt pure
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true" Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    git
-    github
-    node
-    npm
-    pip
-    python
-    zsh-autosuggestions
-)
-
-ZSH_THEME="fkymy"
-
-source $ZSH/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # --------------------------
 # user configuration
@@ -70,6 +20,11 @@ export LANG=en_US.UTF-8
 export EDITOR='vim'
 
 export DOTFILES=$HOME/dotfiles
+export PATH="$DOTFILES/bin:$PATH"
+
+export XDG_CONFIG_HOME=$HOME/dotfiles/.config
+
+export PATH=$PATH:$DOTFILES/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin
 
 ## history config
 HISTFILE=~/.zsh_history
@@ -114,56 +69,22 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
-# -----------------------
-# Prompt
-# -----------------------
-# autoload -U promptinit; promptinit
-# autoload -Uz colors; colors
-#
-# # line 1
-# PROMPT="%~ %# "
-# # line 2
-# PROMPT="%{${fg[white]}%}%n @%*%{${reset_color}%} %~
-# $ "
-#
-# # vcs_info
-# autoload -Uz vcs_info
-# autoload -Uz add-zsh-hook
-#
-# zstyle ':vcs_info:*' check-for-changes true
-#
-# zstyle ':vcs_info:*' formats '%F{white}on %b%u%f'
-# zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
-#
-# function _update_vcs_info_msg() {
-#  LANG=en_US.UTF-8 vcs_info
-#  RPROMPT="${vcs_info_msg_0_}"
-# }
-# add-zsh-hook precmd _update_vcs_info_msg
-
-# move propt to the bottom
-# printf '\n%.0s' {1..100}
-
-# https://github.com/morhetz/gruvbox/wiki/Terminal-specific
-source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
-
 # --------------------------
 # alias
 # --------------------------
 
-# tmp
-alias cutthevideo='ffmpeg -i video.mp4 -r 10 image%d.jpg'
-alias ct='cd ~/Dropbox/texts'
-alias py='python3.6'
-alias dev42='bash ~/dotfiles/dev42.sh'
-alias gogh='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
+alias vim='nvim'
+alias v='vim'
 
-# ls
 alias la='ls -a'
 alias lr='ls -hrtl'
 alias lsx='exa --icons'
 
-# git
+alias cutthevideo='ffmpeg -i video.mp4 -r 10 image%d.jpg'
+alias ct='cd ~/Dropbox/texts'
+alias py='python3.6'
+alias gogh='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
+
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit -m'
@@ -174,25 +95,15 @@ alias gls='git log --stat'
 alias glo='git log --oneline'
 alias glog="git log --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn%x09%Creset%s' | tail -1 && echo '' && git status -s -b"
 
-# vim
-alias v='vim'
-
-# nvim
-alias vim='nvim'
-
-# less
 alias less='less -NM'
-
-# default flag
 alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias df='df -h'
 
-# docker
 alias dc='docker-compose'
 
-# 42
 alias norminette="~/.norminette/norminette.rb"
+
 INT_MIN="-2147483648"
 INT_MAX="2147483647"
 UINT_MAX="4294967295"
@@ -204,7 +115,6 @@ ULONG_MAX="18446744073709551615"
 # C
 # --------------------------
 
-# alias gcc='gcc -Wall -Werror -Wextra'
 
 # --------------------------
 # rake
@@ -233,10 +143,12 @@ eval "$(pyenv init -)"
 # --------------------------
 # node.js
 # --------------------------
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
-# source $HOME/.zshrc.custom
+# https://github.com/nvm-sh/nvm/issues/782
+export PATH=$PATH:~/.npm/node_modules/.bin # Global modules
+export NVM_DIR=$HOME/.nvm
+nvm_load () { . $NVM_DIR/nvm.sh && $NVM_DIR/bash_completion; }
+alias node='unalias node; nvm_load; node $@'
+alias npm=' unalias npm;  nvm_load; npm  $@'
 
 # --------------------------
 # postgresql
@@ -253,15 +165,6 @@ export PGDATA="/usr/local/var/postgres"
 # --------------------------
 source /Users/fkymy/google-cloud-sdk/completion.zsh.inc
 source /Users/fkymy/google-cloud-sdk/path.zsh.inc
-
-
-# --------------------------
-# move default ~/.config/nvim/init.vim to dotfiles
-# --------------------------
-export XDG_CONFIG_HOME=$HOME/dotfiles/vim/.config
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 source /Users/fkymy/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
@@ -294,3 +197,6 @@ export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 if command -v pyenv 1>/dev/null 2>&1; then
  eval "$(pyenv init -)"
 fi
+
+KUBECONFIG=~/.kube/config
+#zprof
