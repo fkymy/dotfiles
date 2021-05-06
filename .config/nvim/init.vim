@@ -48,6 +48,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 "Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cc', 'cpp'] }
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 """"""""""""""""""""""""""""""
@@ -60,6 +61,8 @@ nmap ?? :Rg!<CR>
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 nnoremap <leader>nt :NERDTreeToggle<cr>
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -121,6 +124,13 @@ set shiftwidth=4
 set noexpandtab
 
 let g:AutoPairs={'(':')', '[':']', '{':'}', '```':'```', '"""':'"""', "'''":"'''"}
+
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "IndentWidth" : 4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11"}
 
 " Temporarily removed
 "let g:indent_guides_enable_on_vim_startup = 1
