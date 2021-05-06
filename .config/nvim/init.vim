@@ -1,4 +1,6 @@
+""""""""""""""""""""""""""""""
 " Basic Configurations
+""""""""""""""""""""""""""""""
 set number
 set title
 set noeb vb t_vb=
@@ -14,6 +16,8 @@ set updatetime=100
 
 set sh=zsh
 
+let mapleader = ","
+
 " Temporarily removed
 " set ruler
 " set showcmd
@@ -21,11 +25,13 @@ set sh=zsh
 " set listchars=tab:>\ ,extends:<
 " set listchars+=space:.
 
-" Plugins
+""""""""""""""""""""""""""""""
+" Plugin
+""""""""""""""""""""""""""""""
 call plug#begin('~/dotfiles/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim'
 Plug 'kien/ctrlp.vim'
@@ -46,7 +52,18 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 call plug#end()
 
+""""""""""""""""""""""""""""""
+" Mappings
+""""""""""""""""""""""""""""""
+nmap // :BLines!<CR>
+nmap ?? :Rg!<CR>
+nmap <S-Tab> :tabprev<Return>
+nmap <Tab> :tabnext<Return>
+nnoremap <leader>nt :NERDTreeToggle<cr>
+
+""""""""""""""""""""""""""""""
 " Statusbar
+""""""""""""""""""""""""""""""
 set laststatus=2
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -124,7 +141,6 @@ let g:javascript_plugin_jsdoc = 1
 """"""""""""""""""""""""""""""
 " Zenkaku
 """"""""""""""""""""""""""""""
-" http://inari.hatenablog.com/entry/2014/05/05/231307
 function! ZenkakuSpace()
     highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 endfunction
@@ -137,12 +153,6 @@ if has('syntax')
     augroup END
     call ZenkakuSpace()
 endif
-""""""""""""""""""""""""""""""
-
-"for markdown
-au BufRead,BufNewFile *.md set filetype=markdown
-
-filetype on
 
 """"""""""""""""""""""""""""""
 " 42
@@ -331,6 +341,21 @@ let g:NERDTreeWinSize = 25
 " let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 """"""""""""""""""""""""""""""
+" git-gutter
+""""""""""""""""""""""""""""""
+" highlight SignColumn guifg=#549699
+" highlight GitGutterAdd ctermfg=2
+" highlight GitGutterChange ctermfg=3
+" highlight GitGutterDelete ctermfg=1
+" highlight GitGutterChangeDelete ctermfg=4
+"let g:gitgutter_override_sign_column_highlight = 0
+"highlight clear SignColumn
+highlight GitGutterAdd guifg=#549699 guibg=#3C3836
+highlight GitGutterChange guifg=#549699 guibg=#3C3836
+highlight GitGutterDelete guifg=#549699 guibg=#3C3836
+highlight GitGutterChangeDelete guifg=#549699 guibg=#3C3836
+
+""""""""""""""""""""""""""""""
 " Hot Fixes
 """"""""""""""""""""""""""""""
 " Uncomment the following to have Vim jump to the last position when
@@ -349,25 +374,7 @@ let s:lightGreen = "689FB6"
 "let s:green = "8FAA54"
 let s:green = "689FB6"
 
-nmap <S-Tab> :tabprev<Return>
-nmap <Tab> :tabnext<Return>
+"for markdown
+au BufRead,BufNewFile *.md set filetype=markdown
 
-""""""""""""""""""""""""""""""
-" git-gutter
-""""""""""""""""""""""""""""""
-" highlight SignColumn guifg=#549699
-" highlight GitGutterAdd ctermfg=2
-" highlight GitGutterChange ctermfg=3
-" highlight GitGutterDelete ctermfg=1
-" highlight GitGutterChangeDelete ctermfg=4
-"let g:gitgutter_override_sign_column_highlight = 0
-"highlight clear SignColumn
-highlight GitGutterAdd guifg=#549699 guibg=#3C3836
-highlight GitGutterChange guifg=#549699 guibg=#3C3836
-highlight GitGutterDelete guifg=#549699 guibg=#3C3836
-highlight GitGutterChangeDelete guifg=#549699 guibg=#3C3836
-
-
-"Notes
-nmap // :BLines!<CR>
-nmap ?? :Rg!<CR>
+filetype on
