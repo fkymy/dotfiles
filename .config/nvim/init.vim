@@ -14,12 +14,8 @@ set hlsearch
 set inccommand=nosplit
 set ignorecase
 set splitright
-
-set updatetime=300
-
+set updatetime=100
 set sh=zsh
-
-let mapleader = ","
 
 " Temporarily removed
 " set ruler
@@ -50,12 +46,15 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cc', 'cpp'] }
+Plug 'jiangmiao/auto-pairs'
+"Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cc', 'cpp'] }
 call plug#end()
 
 """"""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""""
+let mapleader = ","
+
 nmap // :BLines!<CR>
 nmap ?? :Rg!<CR>
 nmap <S-Tab> :tabprev<Return>
@@ -121,8 +120,10 @@ set tabstop=4
 set shiftwidth=4
 set noexpandtab
 
+let g:AutoPairs={'(':')', '[':']', '{':'}', '```':'```', '"""':'"""', "'''":"'''"}
+
 " Temporarily removed
-" let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_enable_on_vim_startup = 1
 
 if has("autocmd")
   filetype plugin on
@@ -150,7 +151,8 @@ if has("autocmd")
   autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType go         setlocal noexpandtab list tabstop=2 shiftwidth=2
+  autocmd FileType go         setlocal sw=2 sts=2 ts=2
+  autocmd FileType json       setlocal sw=2 et
 endif
 
 "jsx
