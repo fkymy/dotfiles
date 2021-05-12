@@ -47,8 +47,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
-"Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cc', 'cpp'] }
+" Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cc', 'cpp'] }
+" Plug 'bfrg/vim-cpp-modern', { 'for': ['cc', 'cpp'] }
 Plug 'rhysd/vim-clang-format'
+Plug 'pechorin/any-jump.vim'
+Plug 'drmikehenry/vim-headerguard'
 call plug#end()
 
 """"""""""""""""""""""""""""""
@@ -56,11 +59,12 @@ call plug#end()
 """"""""""""""""""""""""""""""
 let mapleader = ","
 
+nnoremap <F2> :HeaderguardAdd<CR>
 nmap // :BLines!<CR>
 nmap ?? :Rg!<CR>
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
-nnoremap <leader>nt :NERDTreeToggle<cr>
+nnoremap <leader>t :NERDTreeToggle<cr>
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
@@ -112,7 +116,19 @@ let g:gruvbox_improved_strings=1
 let g:gruvbox_vert_split="bg0"
 colorscheme gruvbox
 
+"let g:cpp_no_function_highlight = 1
+" Disable function highlighting (affects both C and C++ files)
 let g:cpp_no_function_highlight = 1
+
+" Enable highlighting of C++11 attributes
+let g:cpp_attributes_highlight = 0
+
+" Highlight struct/class member variables (affects both C and C++ files)
+let g:cpp_member_highlight = 0
+
+" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
+" (affects both C and C++ files)
+let g:cpp_simple_highlight = 1
 
 """"""""""""""""""""""""""""""
 " Indents
