@@ -30,6 +30,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['cc', 'cpp]}
 Plug 'kien/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'bronson/vim-trailing-whitespace'
@@ -62,9 +63,11 @@ let mapleader = ","
 nnoremap <F2> :HeaderguardAdd<CR>
 nmap // :BLines!<CR>
 nmap ?? :Rg!<CR>
+" nnoremap <leader>a :AnyJump<CR>
+nnoremap <leader>e :tabnew .<CR>
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
-nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>t :NERDTreeToggle<CR>
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
@@ -370,7 +373,7 @@ function! ToggleNERDTree()
   silence NERDTreeMirror
 endfunction
 
-let g:NERDTreeWinSize = 25
+let g:NERDTreeWinSize = 30
 
 """"""""""""""""""""""""""""""
 " Syntastic
