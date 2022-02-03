@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 #zmodload zsh/zprof
 
 autoload -U promptinit; promptinit
@@ -10,7 +15,7 @@ prompt pure
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # --------------------------
 # user configuration
@@ -143,12 +148,16 @@ eval "$(pyenv init -)"
 # --------------------------
 # node.js
 # --------------------------
-# https://github.com/nvm-sh/nvm/issues/782
 export PATH=$PATH:~/.npm/node_modules/.bin # Global modules
 export NVM_DIR=$HOME/.nvm
-nvm_load () { . $NVM_DIR/nvm.sh && $NVM_DIR/bash_completion; }
-alias node='unalias node; nvm_load; node $@'
-alias npm=' unalias npm;  nvm_load; npm  $@'
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# https://github.com/nvm-sh/nvm/issues/782
+# export PATH=$PATH:~/.npm/node_modules/.bin # Global modules
+# export NVM_DIR=$HOME/.nvm
+# nvm_load () { . $NVM_DIR/nvm.sh && $NVM_DIR/bash_completion; }
+# alias node='unalias node; nvm_load; node $@'
+# alias npm=' unalias npm;  nvm_load; npm  $@'
 
 # --------------------------
 # postgresql
@@ -200,3 +209,9 @@ fi
 
 KUBECONFIG=~/.kube/config
 #zprof
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
+. "$HOME/.cargo/env"
