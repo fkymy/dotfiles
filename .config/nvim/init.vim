@@ -25,7 +25,8 @@ set sh=zsh
 " Plugin
 """"""""""""""""""""""""""""""
 call plug#begin('~/dotfiles/.config/nvim/plugged')
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ryanoasis/vim-devicons'
@@ -117,7 +118,8 @@ let g:gruvbox_hls_cursor="orange"
 let g:gruvbox_number_column="bg1"
 let g:gruvbox_improved_strings=1
 let g:gruvbox_vert_split="bg0"
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme gruvbox-material
 
 "let g:cpp_no_function_highlight = 1
 " Disable function highlighting (affects both C and C++ files)
