@@ -33,12 +33,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['cc', 'cpp]}
 Plug 'kien/ctrlp.vim'
-Plug 'tomtom/tcomment_vim'
+Plug 'chrisbra/vim-commentary'
+" Plug 'tomtom/tcomment_vim'
 Plug 'bronson/vim-trailing-whitespace'
 
-Plug 'mxw/vim-jsx', { 'for': ['jsx', 'js', 'ts'] }
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'chr4/nginx.vim'
 " Plug 'othree/html5.vim'
 " Plug 'godlygeek/tabular'
 " Plug 'tpope/vim-fugitive'
