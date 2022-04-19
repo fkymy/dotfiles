@@ -1,8 +1,5 @@
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 #zmodload zsh/zprof
 
 autoload -U promptinit; promptinit
@@ -107,7 +104,7 @@ alias df='df -h'
 
 alias dc='docker-compose'
 
-alias norminette="~/.norminette/norminette.rb"
+# alias norminette="~/.norminette/norminette.rb"
 
 INT_MIN="-2147483648"
 INT_MAX="2147483647"
@@ -170,6 +167,12 @@ export PGDATA="/usr/local/var/postgres"
 # export GOPATH=$HOME/go
 
 # --------------------------
+# Rust
+# --------------------------
+export PATH="$HOME/.cargo/env:$PATH"
+
+#
+# --------------------------
 # google-cloud-sdk
 # --------------------------
 source /Users/fkymy/google-cloud-sdk/completion.zsh.inc
@@ -210,8 +213,5 @@ fi
 KUBECONFIG=~/.kube/config
 #zprof
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
-. "$HOME/.cargo/env"
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"
