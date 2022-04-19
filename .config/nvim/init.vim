@@ -25,8 +25,8 @@ set sh=zsh
 " Plugin
 """"""""""""""""""""""""""""""
 call plug#begin('~/dotfiles/.config/nvim/plugged')
-"Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
+Plug 'morhetz/gruvbox'
+"Plug 'sainnhe/gruvbox-material'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ryanoasis/vim-devicons'
@@ -119,8 +119,8 @@ let g:gruvbox_hls_cursor="orange"
 let g:gruvbox_number_column="bg1"
 let g:gruvbox_improved_strings=1
 let g:gruvbox_vert_split="bg0"
-"colorscheme gruvbox
-colorscheme gruvbox-material
+colorscheme gruvbox
+"colorscheme gruvbox-material
 
 "let g:cpp_no_function_highlight = 1
 " Disable function highlighting (affects both C and C++ files)
@@ -147,6 +147,7 @@ set noexpandtab
 
 let g:AutoPairs={'(':')', '[':']', '{':'}', '```':'```', '"""':'"""', "'''":"'''"}
 
+let g:c_syntax_for_h = 1
 let g:clang_format#style_options = {
             \ "AccessModifierOffset" : -4,
             \ "IndentWidth" : 4,
@@ -162,8 +163,9 @@ if has("autocmd")
   filetype indent on
 
   autocmd FileType c,cpp      setlocal cindent
-  autocmd FileType c          setlocal sw=4
-  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cpp        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType rust       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
