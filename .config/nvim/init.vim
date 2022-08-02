@@ -106,6 +106,10 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+"" fern
+nnoremap <silent> <Leader>e :<C-u>Fern . -drawer -toggle<CR>
+nnoremap <silent> <Leader>E :<C-u>Fern . -reveal=%<CR>
+
 """"""""""""""""""""""""""""""
 " Statusbar
 """"""""""""""""""""""""""""""
