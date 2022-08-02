@@ -179,14 +179,15 @@ augroup END
 """"""""""""""""""""""""""""""
 syntax on
 set termguicolors
+
+colorscheme gruvbox-material
+"colorscheme gruvbox
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark="soft"
 let g:gruvbox_hls_cursor="orange"
 let g:gruvbox_number_column="bg1"
 let g:gruvbox_improved_strings=1
 let g:gruvbox_vert_split="bg0"
-colorscheme gruvbox
-"colorscheme gruvbox-material
 
 "let g:cpp_no_function_highlight = 1
 " Disable function highlighting (affects both C and C++ files)
@@ -201,6 +202,41 @@ let g:cpp_member_highlight = 0
 " Put all standard C and C++ keywords under Vim's highlight group 'Statement'
 " (affects both C and C++ files)
 let g:cpp_simple_highlight = 1
+
+" nvim-treesitter configs
+lua <<EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = {
+    "typescript",
+    "tsx",
+  },
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+
+""""""""""""""""""""""""""""""
+" Statusbar
+""""""""""""""""""""""""""""""
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \   'gitbranch': 'FugitiveHead',
+      \ },
+      \ }
+
+function! LightlineFilename()
+  return expand('%')
+endfunction
+
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 """"""""""""""""""""""""""""""
 " Indents
@@ -221,7 +257,7 @@ let g:clang_format#style_options = {
             \ "AlwaysBreakTemplateDeclarations" : "true",
             \ "Standard" : "C++11"}
 
-" Temporarily removed
+" Temporarily removed to test speed
 "let g:indent_guides_enable_on_vim_startup = 1
 
 if has("autocmd")
