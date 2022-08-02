@@ -111,26 +111,68 @@ nnoremap <silent> <Leader>e :<C-u>Fern . -drawer -toggle<CR>
 nnoremap <silent> <Leader>E :<C-u>Fern . -reveal=%<CR>
 
 """"""""""""""""""""""""""""""
-" Statusbar
+" LSP
 """"""""""""""""""""""""""""""
-set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \   'gitbranch': 'FugitiveHead',
-      \ },
-      \ }
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+" COMMENTING OUT
+" inoremap <silent><expr> <TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ <SID>check_back_space() ? "\<TAB>" :
+" \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! LightlineFilename()
-  return expand('%')
+" Use <tab> and <S-tab> to navigate completion list:
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" Insert <tab> when previous text is space, refresh completion if not.
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+"let g:vim_jsx_pretty_disable_tsx = 1
+"let g:vim_jsx_pretty_colorful_config = 1
+let g:coc_global_extensions = ['coc-tsserver', 'coc-lists', 'coc-snippets']
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+nnoremap <silent> K :call CocAction('doHover')<CR>
+
+" function! ShowDocIfNoDiagnostic(timer_id)
+" if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
+" silent call CocActionAsync('doHover')
+" endif
+" endfunction
+
+" function! s:show_hover_doc()
+" call timer_start(500, 'ShowDocIfNoDiagnostic')
+" endfunction
+
+" autocmd CursorHoldI * :call <SID>show_hover_doc()
+" autocmd CursorHold * :call <SID>show_hover_doc()
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+
+function! s:coc_typescript_settings() abort
+  nnoremap <silent> <buffer> [dev]f :<C-u>CocCommand eslint.executeAutofix<CR>:CocCommand prettier.formatFile<CR>
+endfunction
+
+augroup coc_ts
+  autocmd!
+  autocmd FileType typescript,typescriptreact call <SID>coc_typescript_settings()
+augroup END
 
 """"""""""""""""""""""""""""""
 " Colors
