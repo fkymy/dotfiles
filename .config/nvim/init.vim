@@ -16,40 +16,60 @@ set ignorecase
 set splitright
 set updatetime=100
 set sh=zsh
-
 " Temporarily removed
 " set ruler
 " set showcmd
 
 """"""""""""""""""""""""""""""
-" Plugin
+" Plugins
 """"""""""""""""""""""""""""""
+" vim-plug
 call plug#begin('~/dotfiles/.config/nvim/plugged')
-Plug 'morhetz/gruvbox'
-"Plug 'sainnhe/gruvbox-material'
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'ryanoasis/vim-devicons'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['cc', 'cpp]}
-Plug 'kien/ctrlp.vim'
-Plug 'chrisbra/vim-commentary'
-" Plug 'tomtom/tcomment_vim'
-Plug 'bronson/vim-trailing-whitespace'
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+" Make sure you use single quotes
 
-Plug 'klen/python-mode', { 'for': 'python' }
-Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'chr4/nginx.vim'
-" Plug 'othree/html5.vim'
+" Basics
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'chrisbra/vim-commentary'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'ryanoasis/vim-devicons'
 " Plug 'godlygeek/tabular'
 " Plug 'tpope/vim-fugitive'
 " Plug 'scrooloose/syntastic'
 
+" ColorScheme
+" Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Syntax Highlighting
+Plug 'chr4/nginx.vim'
+Plug 'othree/html5.vim'
+
+" Filer
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'lambdalisue/fern.vim'
+
+" LSP
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Fuzzy Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
+Plug 'kien/ctrlp.vim'
+
+Plug 'pechorin/any-jump.vim'
+Plug 'drmikehenry/vim-headerguard'
+
 " Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cc', 'cpp'] }
 " Plug 'bfrg/vim-cpp-modern', { 'for': ['cc', 'cpp'] }
 Plug 'rhysd/vim-clang-format'
