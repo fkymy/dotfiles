@@ -263,9 +263,14 @@ require('nvim-treesitter.configs').setup {
   },
   highlight = {
     enable = true,
+    disable = {"c", "cpp", "rust"},
   },
 }
 EOF
+
+" force to rescan entire buffer when highlighting ts js
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 """"""""""""""""""""""""""""""
 " Statusbar
@@ -292,11 +297,16 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 """"""""""""""""""""""""""""""
 " Indents
 """"""""""""""""""""""""""""""
+set expandtab
+set smarttab
 set autoindent
 set smartindent
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+
+set lbr
+set tw=500
+set wrap
 
 let g:AutoPairs={'(':')', '[':']', '{':'}', '```':'```', '"""':'"""', "'''":"'''"}
 
@@ -315,34 +325,34 @@ if has("autocmd")
   filetype plugin on
   filetype indent on
 
-  autocmd FileType c,cpp      setlocal cindent
-  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType cpp        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType rust       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType typescript setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType jsx        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType tsx        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType go         setlocal sw=2 sts=2 ts=2
-  autocmd FileType json       setlocal sw=2 et
-  autocmd FileType solidity   setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType c,cpp           setlocal cindent
+  autocmd FileType c               setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cpp             setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType rust            setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType css             setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType diff            setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType html            setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType java            setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType javascript      setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType typescript      setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType javascriptreact setlocal sw=2 sts=2 ts=2 et ai si
+  autocmd FileType typescriptreact setlocal sw=2 sts=2 ts=2 et ai si
+  autocmd FileType perl            setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType php             setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType python          setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType ruby            setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType haml            setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sh              setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType sql             setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vim             setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType xhtml           setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xml             setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType yaml            setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType zsh             setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType scala           setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType go              setlocal sw=2 sts=2 ts=2
+  autocmd FileType json            setlocal sw=2 et
+  autocmd FileType solidity        setlocal sw=4 sts=4 ts=4 et
 endif
 
 "jsx
@@ -567,21 +577,14 @@ highlight GitGutterDelete guifg=#549699 guibg=#3C3836
 highlight GitGutterChangeDelete guifg=#549699 guibg=#3C3836
 
 """"""""""""""""""""""""""""""
-" LSP
+" Neovim VSCode
 """"""""""""""""""""""""""""""
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+if exists('g:vscode')
+  xmap gc  <Plug>VSCodeCommentary
+  nmap gc  <Plug>VSCodeCommentary
+  omap gc  <Plug>VSCodeCommentary
+  nmap gcc <Plug>VSCodeCommentaryLine
+endif
 
 """"""""""""""""""""""""""""""
 " Hot Fixes
