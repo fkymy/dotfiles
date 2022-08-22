@@ -2,6 +2,9 @@
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 #zmodload zsh/zprof
 
+# Setup Pure
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
 autoload -U promptinit; promptinit
 PURE_PROMPT_SYMBOL=$
 zstyle :prompt:pure:path color white
@@ -182,15 +185,19 @@ eval "$(pyenv init -)"
 # node.js
 # --------------------------
 export PATH=$PATH:~/.npm/node_modules/.bin # Global modules
-export NVM_DIR=$HOME/.nvm
+# export NVM_DIR=$HOME/.nvm
 # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 # https://github.com/nvm-sh/nvm/issues/782
 # export PATH=$PATH:~/.npm/node_modules/.bin # Global modules
 # export NVM_DIR=$HOME/.nvm
 # nvm_load () { . $NVM_DIR/nvm.sh && $NVM_DIR/bash_completion; }
 # alias node='unalias node; nvm_load; node $@'
 # alias npm=' unalias npm;  nvm_load; npm  $@'
+
+export NVM_DIR="$HOME/dotfiles/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # --------------------------
 # postgresql
@@ -210,8 +217,9 @@ export PATH="$HOME/.cargo/env:$PATH"
 # --------------------------
 # google-cloud-sdk
 # --------------------------
-source /Users/fkymy/google-cloud-sdk/completion.zsh.inc
-source /Users/fkymy/google-cloud-sdk/path.zsh.inc
+# source /Users/fkymy/google-cloud-sdk/completion.zsh.inc
+# source /Users/fkymy/google-cloud-sdk/path.zsh.inc
+
 
 source /Users/fkymy/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
