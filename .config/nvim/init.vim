@@ -42,6 +42,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'chrisbra/vim-commentary'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ryanoasis/vim-devicons'
+Plug 'pechorin/any-jump.vim'
+Plug 'drmikehenry/vim-headerguard'
 " Plug 'godlygeek/tabular'
 " Plug 'tpope/vim-fugitive'
 " Plug 'scrooloose/syntastic'
@@ -67,14 +69,19 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kien/ctrlp.vim'
 
-Plug 'pechorin/any-jump.vim'
-Plug 'drmikehenry/vim-headerguard'
-
+" Language Specific
+Plug 'rhysd/vim-clang-format'
 " Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cc', 'cpp'] }
 " Plug 'bfrg/vim-cpp-modern', { 'for': ['cc', 'cpp'] }
-Plug 'rhysd/vim-clang-format'
-Plug 'pechorin/any-jump.vim'
-Plug 'drmikehenry/vim-headerguard'
+Plug 'klen/python-mode', { 'for': 'python' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+" Plug 'mxw/vim-jsx'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'tomlion/vim-solidity'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""
