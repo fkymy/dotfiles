@@ -1,5 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 #zmodload zsh/zprof
 
 autoload -U promptinit; promptinit
@@ -106,6 +106,42 @@ alias dc='docker-compose'
 
 # alias norminette="~/.norminette/norminette.rb"
 
+alias tls='tmux ls'
+alias tkill='tmux kill-session -t'
+alias ta='tmux a -t'
+alias tnew='tmux new -s'
+
+alias ..='cd ..'
+alias ...='cd ./../'
+alias back='cd $(git rev-parse --show-toplevel)'
+
+alias vimrc='vim ~/dotflies/.config/nvim/init.vim'
+
+alias gs='git status'
+alias gd='git diff'
+alias ga='git add'
+alias gc='git commit'
+alias gca='git commit -A'
+alias gcam='git commit --amend --no-edit'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gt='git tree'
+alias gri='git rm -r --cached .; git add -A ; git commit -m "🧹 reflect .gitignore" '
+alias gls='git log --stat'
+alias glo='git log --oneline'
+alias glp='git log -p'
+alias glog="git log --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn%x09%Creset%s' | tail -1 && echo '' && git status -s -b"
+
+dstop() { docker stop $(docker ps -a -q); }
+drm() { docker rm -f $(docker ps -aq); }
+drmi() { docker rmi -f $(docker images -aq); }
+dup() { docker-compose up -d;  }
+dupr() { docker-compose restart; }
+ddown() { docker-compose down; }
+alias dl="docker ps -l -q"
+
 INT_MIN="-2147483648"
 INT_MAX="2147483647"
 UINT_MAX="4294967295"
@@ -171,7 +207,6 @@ export PGDATA="/usr/local/var/postgres"
 # --------------------------
 export PATH="$HOME/.cargo/env:$PATH"
 
-#
 # --------------------------
 # google-cloud-sdk
 # --------------------------
@@ -214,4 +249,4 @@ KUBECONFIG=~/.kube/config
 #zprof
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
