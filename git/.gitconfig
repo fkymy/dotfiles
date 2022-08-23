@@ -9,8 +9,7 @@
 	whitespace = space-before-tab,indent-with-non-tab,trailing-space
 	ignorecase = false
 	# delta
-	pager = delta
-	# pager = delta --dark
+    pager = delta
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
 	ui = auto
@@ -50,13 +49,17 @@
 	defaultBranch = main
 
 [delta]
-	features = collared-trogon
-	# features = villsau
-	# features = woolly-mammoth
-	side-by-side = false
-	line-numbers = true
-	navigate = true
-	whitespace-error-style = 22 reverse
-	hunk-header-line-number-style = bold "#999999"
+    navigate = true
+    light = false
+    line-numbers = true
+    side-by-side = true
+    features = chameleon
+    # minus-emph-style=bold "#202020" "#ffe0e0"
+    # plus-emph-style=bold "#202020" "#d0ffd0"
+    minus-emph-style=bold "#202020" red
+    plus-emph-style=bold "#202020" green
+    # features = hoopoe
 [interactive]
-	diffFilter = delta --color-only
+    diffFilter = delta --color-only
+[add.interactive]
+    useBuiltin = false
