@@ -16,6 +16,8 @@ set ignorecase
 set splitright
 set updatetime=100
 set sh=zsh
+set encoding=UTF-8
+
 " Temporarily removed
 " set ruler
 " set showcmd
@@ -44,8 +46,9 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'pechorin/any-jump.vim'
 Plug 'drmikehenry/vim-headerguard'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 " Plug 'godlygeek/tabular'
-" Plug 'tpope/vim-fugitive'
 " Plug 'scrooloose/syntastic'
 
 " ColorScheme
@@ -143,7 +146,7 @@ nnoremap <silent> <Leader>E :<C-u>Fern . -reveal=%<CR>
 " \ coc#refresh()
 " inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-" Use <c-space> to trigger completion:  
+" Use <c-space> to trigger completion:
 " if has('nvim')
 " inoremap <silent><expr> <c-space> coc#refresh()
 " else
@@ -229,9 +232,17 @@ nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 " Colors
 """"""""""""""""""""""""""""""
 syntax on
-set termguicolors
+
+if has('termguicolors')
+  set termguicolors
+endif
+
+set background=dark
+let g:gruvbox_material_background="hard"
+let g:gruvbox_material_foreground="material"
 
 colorscheme gruvbox-material
+
 "colorscheme gruvbox
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark="soft"
@@ -277,7 +288,7 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 """"""""""""""""""""""""""""""
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'gruvbox_material',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
