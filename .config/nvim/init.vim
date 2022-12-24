@@ -41,15 +41,15 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
-Plug 'chrisbra/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'ryanoasis/vim-devicons'
 Plug 'pechorin/any-jump.vim'
 Plug 'drmikehenry/vim-headerguard'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 " Plug 'godlygeek/tabular'
 " Plug 'scrooloose/syntastic'
+" Plug 'chrisbra/vim-commentary'
 
 " ColorScheme
 " Plug 'morhetz/gruvbox'
@@ -76,14 +76,18 @@ Plug 'kien/ctrlp.vim'
 Plug 'rhysd/vim-clang-format'
 " Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cc', 'cpp'] }
 " Plug 'bfrg/vim-cpp-modern', { 'for': ['cc', 'cpp'] }
-Plug 'klen/python-mode', { 'for': 'python' }
-Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+" Plug 'klen/python-mode', { 'for': 'python' }
+" Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 " Plug 'mxw/vim-jsx'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tomlion/vim-solidity'
+Plug 'pantharshit00/vim-prisma'
+
+" Load last
+" Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -555,7 +559,7 @@ function! ToggleNERDTree()
   silence NERDTreeMirror
 endfunction
 
-let g:NERDTreeWinSize = 30
+let g:NERDTreeWinSize = 24
 
 """"""""""""""""""""""""""""""
 " Syntastic
